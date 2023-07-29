@@ -10,7 +10,16 @@ export const meta: V2_MetaFunction = () => {
 export default (() => {
     return (
         <>
-            <p className="text-2xl lg:text-4xl">Hey,I'm Al-Nahian Pulok 👋</p>
+            <p className="text-2xl font-semibold md:text-4xl">Hey, I'm Nahian 👋</p>
+            <p className="py-10 md:text-xl text-neutral-400">
+                I am a student of Daffodil Internation University,
+                <br />
+                curenntly working as a Software Develover a Arogga Ltd.
+                <br />
+                I focus on learning new things and keep up with the ever growing tech communities.
+            </p>
+
+
         </>
     );
 });
