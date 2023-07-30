@@ -5,6 +5,7 @@
     "build": "remix build",
     "dev": "remix dev",
     "start": "remix-serve build",
+    "pre": "pnpm build && pnpm start",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -23,6 +24,8 @@
     "@types/react": "^18.2.17",
     "@types/react-dom": "^18.2.7",
     "eslint": "^8.46.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.1.6"
   },
