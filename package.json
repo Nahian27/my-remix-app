@@ -3,33 +3,35 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
+    "predev": "rimraf ./.netlify/edge-functions/",
     "dev": "remix dev",
-    "start": "remix-serve build",
-    "pre": "pnpm build && pnpm start",
-    "typecheck": "tsc"
+    "start": "netlify serve",
+    "typecheck": "tsc -b"
   },
   "dependencies": {
-    "@remix-run/css-bundle": "^1.19.1",
-    "@remix-run/node": "^1.19.1",
-    "@remix-run/react": "^1.19.1",
-    "@remix-run/serve": "^1.19.1",
-    "framer-motion": "^10.15.0",
+    "@netlify/edge-functions": "^2.0.0",
+    "@netlify/functions": "^1.6.0",
+    "@netlify/remix-edge-adapter": "1.2.0",
+    "@remix-run/node": "^1.19.3",
+    "@remix-run/react": "^1.19.3",
+    "cross-env": "^7.0.3",
+    "framer-motion": "^10.15.1",
     "isbot": "^3.6.13",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.19.1",
-    "@remix-run/eslint-config": "^1.19.1",
-    "@types/react": "^18.2.18",
+    "@remix-run/dev": "^1.19.3",
+    "@remix-run/eslint-config": "^1.19.3",
+    "@remix-run/serve": "^1.19.3",
+    "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
-    "eslint": "^8.46.0",
-    "prettier": "^3.0.1",
-    "prettier-plugin-tailwindcss": "^0.4.1",
-    "tailwindcss": "^3.3.3",
+    "eslint": "^8.47.0",
+    "rimraf": "^5.0.1",
     "typescript": "^5.1.6"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=14"
   }
 }

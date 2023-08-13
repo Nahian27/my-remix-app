@@ -1,9 +1,9 @@
 import type { LinksFunction } from "@remix-run/node";
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
-  Link,
   Scripts,
   ScrollRestoration,
   useLocation,
@@ -34,23 +34,25 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="antialiased bg-black text-gray-200 ">
+      <body className="antialiased text-gray-200 bg-black ">
         <div>
-          <aside className="md:w-2/5 w-screen md:fixed md:left-0 top-0 md:h-screen bg-neutral-950 py-4 md:p-0">
-            <nav className="flex md:-translate-x-6 md:translate-y-20 items-center justify-evenly md:justify-center md:items-end md:flex md:flex-col md:gap-5">
+          <aside className="top-0 w-screen py-4 md:w-2/6 md:fixed md:left-0 md:h-screen bg-neutral-950 md:p-0">
+            <nav className="flex items-center md:-translate-x-6 md:translate-y-20 justify-evenly md:justify-center md:items-end md:flex md:flex-col md:gap-5">
               <img
                 height={512}
                 width={512}
                 alt="Logo of Al-Nahian Pulok"
-                className="h-16 w-16 md:h-32 md:w-32 rounded-md grayscale hover:grayscale-0 md:hover:scale-125 transition duration-300"
+                className="w-16 h-16 transition duration-300 rounded-md md:h-32 md:w-32 grayscale hover:grayscale-0 md:hover:scale-125"
                 src="/icon.jpg"
               />
               {tabs.map((tab, index) => (
                 <Link
-                  key={tab.route}
+                  key={index}
                   to={tab.route}
                   prefetch="viewport"
-                  onClick={() => setActiveTab(tab.route)}
+                  onClick={() => {
+                    setActiveTab(tab.route);
+                  }}
                   className={`${
                     activeTab === tab.route
                       ? ""
@@ -61,15 +63,16 @@ export default function App() {
                     <motion.div
                       layoutId="activePill"
                       transition={{ duration: 0.5, type: "spring" }}
-                      className="bg-neutral-800 mix-blend-lighten rounded-md absolute inset-0"
-                    ></motion.div>
+                      className="absolute inset-0 rounded-md bg-neutral-800 mix-blend-lighten"
+                    >
+                    </motion.div>
                   )}
                   {tab.label}
                 </Link>
               ))}
             </nav>
           </aside>
-          <main className="flex-1 md:ml-[40%] px-5 py-10 md:py-32">
+          <main className="flex-1 md:ml-[33.333333%] px-5 py-10 md:py-32">
             <AnimatePresence mode={"wait"} initial={false}>
               <motion.div
                 key={activeTab}
